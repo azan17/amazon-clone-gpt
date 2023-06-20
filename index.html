@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Amazon.com. Spend less. Smile more.</title>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png" type="image/x-icon">
+    <style>
+        /* Reset default styles */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        body{
+          background-color: #f8f8f8;
+          font-family: 'Roboto', sans-serif;
+        }
+                                                          /* Amazon Navbar CSS */
+        .navbar {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          height: 60px;
+          background-color: #131921;
+        }
+        .navbar-logo img {
+          height: 30px;
+          width: 95px;
+          margin-right: 10px;
+        }
+        .navbar-search {
+          display: flex;
+          align-items: center;
+        }
+        .search-input {
+          height: 35px;
+          width: 600px;
+          padding: 5px;
+          font-size: 14px;
+          border: none;
+          border-radius: 5px 0 0 5px;
+          outline: none;
+        }
+        .search-button {
+          background-color: #febd69;
+          border: none;
+          height: 35px;
+          width: 35px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          font-size: 16px;
+          border-radius: 0 5px 5px 0;
+        }
+        .navbar-options {
+          display: flex;
+          align-items: center;
+        }
+        .navbar-link {
+          color: #ffffff;
+          text-decoration: none;
+          margin-right: 10px;
+        }
+        .navbar-account {
+          display: flex;
+          align-items: center;
+        }
+        .cart-items {
+          background-color: #febd69;
+          color: #131921;
+          padding: 2px 5px;
+          border-radius: 30%;
+          margin-left: 5px;
+        }
+                                                          /* Amazon Product Slider CSS */
+        .slider {
+          width: 100%;
+          height: 800px;
+          overflow: hidden;
+        }
+        .slider-container {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          transition: transform 0.5s ease;
+        }
+        .slide {
+          flex: 0 0 100%;
+        }
+        .slide img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
+                                                          /* Amazon Product Cards CSS */
+        .listing{
+          position: relative;
+          z-index: 1;
+          margin-top: -600px;
+        }
+        #row1{
+          background-image: linear-gradient(to top, #f8f8f8, #f8f8f8, #f8f8f8, transparent);
+        }
+        .cards-container {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          max-width: 100%;
+          margin: 0 auto;
+        }
+        .card {
+          width: 300px;
+          padding: 10px;
+          background-color: #ffffff;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          text-align: center;
+          margin-top: 40px;
+        }
+        .card-title {
+          font-size: 18px;
+          margin-bottom: 10px;
+          text-align: left;
+        }
+        .card img {
+          width: 100%;
+          height: 300px;
+          object-fit: cover;
+          margin-bottom: 10px;
+        }
+        .add-to-cart-btn {
+          background-color: #febd69;
+          color: #131921;
+          border: none;
+          padding: 8px 12px;
+          font-size: 14px;
+          cursor: pointer;
+        }
+                                                          /* Amazon Footer CSS */
+        footer {
+          background-color: #131921;
+          padding: 40px 0;
+          margin-top: 40px;
+        }
+        .footer-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-around;
+        }
+        .footer-section {
+          flex: 1;
+        }
+        .footer-section h4 {
+          color: #ffffff;
+          font-size: 20px;
+          margin-bottom: 10px;
+          font-weight: 700;
+        }
+        .footer-section ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          font-weight: 400;
+        }
+        .footer-section li {
+          margin-bottom: 5px;
+        }
+        .footer-section a {
+          color: #f8f8f8;
+          text-decoration: none;
+        }
+        .footer-section a:hover {
+          text-decoration: underline;
+        }
+        .footer2{
+            line-height: 1.2em;
+            background-color: #232F3E;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+                                              <!------------ Amazon Clone Navbar ------------>
+    <nav class="navbar">
+          <a href="#" class="navbar-logo">
+            <img src="logo.png" alt="Amazon Logo">
+          </a>
+          <div class="navbar-search">
+            <input type="text" placeholder="Search Amazon" class="search-input">
+            <button class="search-button"><i class="fa fa-search"></i></button>
+          </div>
+          <div class="navbar-options">
+            <a href="#" class="navbar-link">Today's Deals</a>
+            <a href="#" class="navbar-link">Customer Service</a>
+            <a href="#" class="navbar-link">Gift Cards</a>
+          </div>
+          <div class="navbar-account">
+            <a href="#" class="navbar-link">Sign In</a>
+            <a href="#" class="navbar-link">
+              <i class="fa fa-shopping-cart" style="font-size:20px;"></i>
+              <span class="cart-items">0</span>
+            </a>
+        </div>
+      </nav>
+                                                <!------------ Amazon Clone Slider ------------>
+      <div class="slider">
+        <div class="slider-container">
+          <div class="slide">
+            <img src="https://m.media-amazon.com/images/I/61qa3132IFL._SX3000_.jpg" alt="Slide 1">
+          </div>
+          <div class="slide">
+            <img src="https://m.media-amazon.com/images/I/61lwJy4B8PL._SX3000_.jpg" alt="Slide 2">
+          </div>
+          <div class="slide">
+            <img src="https://m.media-amazon.com/images/I/71Ie3JXGfVL._SX3000_.jpg" alt="Slide 3">
+          </div>
+          <div class="slide">
+            <img src="https://m.media-amazon.com/images/I/71U-Q+N7PXL._SX3000_.jpg" alt="Slide 4">
+          </div>
+          <div class="slide">
+            <img src="https://m.media-amazon.com/images/I/81KkrQWEHIL._SX3000_.jpg" alt="Slide 5">
+          </div>
+          <div class="slide">
+            <img src="https://m.media-amazon.com/images/I/61zAjw4bqPL._SX3000_.jpg" alt="Slide 6">
+          </div>
+        </div>
+      </div>
+                                                <!------------ Amazon Clone Product Card ------------>
+      <div class="listing">
+        <div class="cards-container" id="row1">
+          <div class="card">
+            <h3 class="card-title">Fitness Smart Watches</h3>
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/September/DashboardCards/Fuji_Dash_SmartWatch_1X._SY304_CB639922137_.jpg" alt="Product 1">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Children Under 30$</h3>
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/US-hq/2022/img/Amazon_Exports/XCM_CUTTLE_1469244_2584128_379x304_1X_en_US._SY304_CB609318944_.jpg" alt="Product 2">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Electronics</h3>
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Electronics_1x._SY304_CB432774322_.jpg" alt="Product 3">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Top Deal</h3>
+            <img src="https://m.media-amazon.com/images/I/614aSC8xhoL._AC_SY230_.jpg" alt="Deal">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+        <div class="cards-container" style="background-color: #f8f8f8;">
+          <div class="card">
+            <h3 class="card-title">Shop Laptops</h3>
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Laptops_379x304_1X_en_US._SY304_CB418608471_.jpg" alt="Product 1">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Kindle E Reader</h3>
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/September/DashboardCards/Fuji_Desktop_Dash_Kindle_1x._SY304_CB639752818_.jpg" alt="Product 2">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Musical Instruments</h3>
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_StripLighting_379x304_1X_en_US._SY304_CB418597476_.jpg" alt="Product 3">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Pet Supplies</h3>
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/September/DashboardCards/Fuji_Dash_Pets_1X._SY304_CB639746743_.jpg" alt="Deal">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+        <div class="cards-container">
+          <div class="card">
+            <h3 class="card-title">Fitness Items</h3>
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/September/DashboardCards/Fuji_Dash_Fitness_1X._SY304_CB639748186_.jpg" alt="Product 1">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Home Refresh Ideas</h3>
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/home/THILGMA/SpringEvent2023/XCM_CUTTLE_1559454_3018199_379x304_1X_en_US._SY304_CB592739737_.jpg" alt="Product 2">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Fashion & Trends</h3>
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/softlines/shopbop/ingress/2023/March/mp_20230219_ff_desktopsinglecategory_desktop_379x304_1._SY304_CB612639047_.jpg" alt="Product 3">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Beauty & Care</h3>
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2022/February/DashboardCards/GW_CONS_AUS_HPC_HPCEssentials_CatCard_Desktop1x._SY304_CB627424361_.jpg" alt="Deal">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+        <div class="cards-container">
+          <div class="card">
+            <h3 class="card-title">Fitness Smart Watches</h3>
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/September/DashboardCards/Fuji_Dash_SmartWatch_1X._SY304_CB639922137_.jpg" alt="Product 1">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Children Under 30$</h3>
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/US-hq/2022/img/Amazon_Exports/XCM_CUTTLE_1469244_2584128_379x304_1X_en_US._SY304_CB609318944_.jpg" alt="Product 2">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Electronics</h3>
+            <img src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Electronics_1x._SY304_CB432774322_.jpg" alt="Product 3">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Top Deal</h3>
+            <img src="https://m.media-amazon.com/images/I/614aSC8xhoL._AC_SY230_.jpg" alt="Deal">
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+                                              <!------------ Amazon Clone Footer ------------>
+      <footer>
+        <div class="footer-container">
+          <div class="footer-section">
+            <h4>Get to Know Us</h4>
+            <ul>
+              <li><a href="#">About Amazon</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press Releases</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Make Money with Us</h4>
+            <ul>
+              <li><a href="#">Sell on Amazon</a></li>
+              <li><a href="#">Sell under Amazon Accelerator</a></li>
+              <li><a href="#">Become an Affiliate</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Amazon Payment Products</h4>
+            <ul>
+              <li><a href="#">Amazon Business Card</a></li>
+              <li><a href="#">Shop with Points</a></li>
+              <li><a href="#">Reload Your Balance</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Let Us Help You</h4>
+            <ul>
+              <li><a href="#">Amazon and COVID-19</a></li>
+              <li><a href="#">Your Account</a></li>
+              <li><a href="#">Returns Centre</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+      <div class="footer2">
+        Made with &hearts; by Amazon <br>
+        &copy; 1996-2022, Amazon.com, Inc. or its affiliates
+      </div>
+
+                                              <!------------ Amazon Clone Slider Script ------------>
+      
+      <script>
+        // Set the initial slide index
+        let currentSlide = 0;
+
+        // Function to switch to the next slide
+        function nextSlide() {
+          currentSlide++;
+          if (currentSlide === 6) {
+            currentSlide = 0;
+          }
+          updateSliderPosition();
+        }
+
+        // Function to update the slider position
+        function updateSliderPosition() {
+          const sliderContainer = document.querySelector('.slider-container');
+          sliderContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Automatically switch to the next slide every 3 seconds
+        setInterval(nextSlide, 3000);
+
+      </script>
+</body>
+</html>
